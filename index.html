@@ -19,7 +19,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ------ inner css ------ -->
-    <link rel="innercss" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <!-- ------- daidy  and tailwind css link ------- -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -103,20 +103,46 @@
             </div>
         </section>
 
+        <!-- ------ loadiing section -------  -->
+         <section id="sppiner" class=" flex justify-center items-center mb-20 hidden">
+            <span class="loading loading-bars loading-xl"></span>
+         </section>
+
         <!-- -----lesson card Showing  section------- -->
         <section class="bg-[#F8F8F8] p-15">
-            <div id="words-container" class="w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 flex-cols-3 ">
-                    <!-- ---- dynamic card insert ----  -->
+            <div id="words-container"
+                class="w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 flex-cols-3 ">
+                <!-- ---- dynamic card insert ----  -->
 
-                    <!-- ------ random load page text ----- -->
-                   <div class="random-text text-center col-span-3 font-bangla">
-                      <p class=" text-sm text-gray-400">আপনি এখনো কোন Lesson Select করেন নাই</p>
-                     <h1 class="text-4xl font-bold pt-3">একটি Lesson Select করুন।</h1>
-                   </div>
+                <!-- ------ random load page text ----- -->
+                <div class="random-text text-center col-span-3 font-bangla">
+                    <p class=" text-sm text-gray-400">আপনি এখনো কোন Lesson Select করেন নাই</p>
+                    <h1 class="text-4xl font-bold pt-3">একটি Lesson Select করুন।</h1>
+                </div>
             </div>
 
         </section>
     </main>
+
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="info_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box rounded">
+            <div id="details-container">
+
+
+            </div>
+
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-primary text-lg text-white py-3 px-6">Complete Learning</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <!-- ----- inner js file -- -->
     <script src="./scripts/index.js"></script>
