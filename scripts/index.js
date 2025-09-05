@@ -9,19 +9,23 @@ const createElement = (arr) => {
     const htmlElements = arr.map(el => `<span class="btn">${el}</span>`);
     return htmlElements.join(" ");
 }
-
 const manageSppiner = (status) => {
     if (status == true) {
         document.getElementById("sppiner").classList.remove("hidden");
         document.getElementById("words-container").classList.add("hidden");
     } else {
-        document.getElementById("words-container" ).classList.remove("hidden");
+        document.getElementById("words-container").classList.remove("hidden");
         document.getElementById("sppiner").classList.add("hidden");
     }
 };
 const removeActive = () => {
     const lessonBtn = document.querySelectorAll(".lesson-btn");
     lessonBtn.forEach(btn => btn.classList.remove("active"))
+}
+const pronounceWord = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
 }
 const loadLavelWords = (id) => {
     manageSppiner(true)
@@ -71,6 +75,7 @@ const displayWordDetails = (word) => {
 const displayLevalWords = (words) => {
     const wordsContainer = document.getElementById("words-container");
     wordsContainer.innerHTML = "";
+    // document.getElementById("input-search").value = "";
     // ----------- empty lesson massege ------------
     if (words.length == 0) {
         wordsContainer.innerHTML = `
@@ -91,8 +96,8 @@ const displayLevalWords = (words) => {
                     <p class="text-sm py-3">meaning/Pronounciation</p>
                     <h2 class="text-2xl font-semibold ">${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"}/${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি"}</h2>
                     <div class="icons text-2xl flex justify-between items-center mt-14">
-                        <button onclick="loadWordDetails(${word.id})" class="bg-[#E8F4FF] p-2 rounded-md"><i class="fa-solid fa-circle-info"></i></button>
-                        <button href="#" class=" bg-[#E8F4FF] p-2 rounded-md"> <i class="fa-solid fa-volume-high"></i></button>
+                        <button onclick="loadWordDetails(${word.id})" class="bg-[#E8F4FF] p-2 rounded-md hover:bg-[#3b77b0] cursor-pointer"><i class="fa-solid fa-circle-info"></i></button>
+                        <button onclick="pronounceWord('${word.word}')" href="#" class=" bg-[#E8F4FF] p-2 rounded-md hover:bg-[#3b77b0] cursor-pointer"> <i class="fa-solid fa-volume-high"></i></button>
                     </div>
                 </div>
         `;
@@ -114,5 +119,21 @@ const displyLessons = (lessons) => {
 
     }
 }
+loadLessons();
+document.getElementById("btn-search").addEventListener("click", () => {
+    removeActive(false)
+    const inputSearch = document.getElementById("input-search");
+    const searchValue = inputSearch.value.trim().toLowerCase();
+    console.log(searchValue)
 
-loadLessons()
+    fetch("https://openapi.programming-hero.com/api/words/all")
+        .then(res => res.json())
+        .then(data => {
+            const allWord = data.data;
+            const filterWord = allWord.filter((word) =>
+                word.word.toLowerCase().includes(searchValue)
+            )
+            console.log(filterWord);
+            displayLevalWords(filterWord);
+        })
+})

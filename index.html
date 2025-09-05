@@ -96,17 +96,29 @@
 
     <!-- ------main section ------- -->
     <main>
-        <section class="lessons my-20 mx-auto flex flex-col justify-center items-center">
+        <!-- --------- heading  section ------- -->
+        <section class="lessons  mx-auto flex flex-col justify-center items-center">
             <h1 class="text-3xl font-bold"><span class="text-[#00bcff]">Let's </span>Learn Vocabularies</h1>
-            <div id="lesson-container" class=" flex flex-wrap gap-4  my-10 justify-center items-center">
+            <div id="lesson-container" class=" flex flex-wrap gap-4  my-15 justify-center items-center">
+            </div>
+        </section>
 
+        <!-- ----------- search box section -----------  -->
+        <section class="search-box pb-15 flex justify-center items-center">
+            <div class="join">
+                <div>
+                    <label class="input validator join-item">
+                        <input id="input-search" type="text" placeholder="Search Vocanulary Now" required />
+                    </label>
+                </div>
+                <button id="btn-search" class="btn btn-primary join-item">Search</button>
             </div>
         </section>
 
         <!-- ------ loadiing section -------  -->
-         <section id="sppiner" class=" flex justify-center items-center mb-20 hidden">
+        <section id="sppiner" class=" flex justify-center items-center mb-20 hidden">
             <span class="loading loading-bars loading-xl"></span>
-         </section>
+        </section>
 
         <!-- -----lesson card Showing  section------- -->
         <section class="bg-[#F8F8F8] p-15">
@@ -122,7 +134,72 @@
             </div>
 
         </section>
+
+        <!-- -------- Question sections -------  -->
+        <section class="">
+            <h1 class="text-3xl font-bold text-center my-20"><span class="text-[#6da8d2]">Frequently</span> Asked
+                Questions</h1>
+
+            <div class="questions my-10 mx-10 md:mx-50 lg:mx-80 space-y-3 ">
+
+                <div
+                    class="question flex justify-between items-center gap-4 text-gray-500 py-2 px-10 bg-gray-100 rounded-md ">
+                    <p>1.How can I start learning English on this website?</p>
+                    <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
+                </div>
+
+                <div
+                    class="question flex justify-between items-center text-gray-500 gap-4 py-2 px-10 bg-gray-100 rounded-md ">
+                    <p>2.Is this website free to use?</p>
+                    <a href=""><i class="fa-solid fa-chevron-down"></i></a>
+                </div>
+
+                <div
+                    class="question flex justify-between items-center text-gray-500 gap-4 py-2 px-10 bg-gray-100 rounded-md ">
+                    <p>3.3. Do I need to create an account?</p>
+                    <a href=""><i class="fa-solid fa-chevron-down"></i></a>
+                </div>
+
+                <div
+                    class="question flex justify-between items-center text-gray-500 gap-4 py-2 px-10 bg-gray-100 rounded-md ">
+                    <p>4. How can I build my English vocabulary?</p>
+                    <a href=""><i class="fa-solid fa-chevron-down"></i></a>
+                </div>
+
+                <div
+                    class="question flex justify-between items-center text-gray-500 gap-4 py-2 px-10 bg-gray-100 rounded-md ">
+                    <p>5. Do you offer certificates for completed courses?</p>
+                    <a href=""><i class="fa-solid fa-chevron-down"></i></a>
+                </div>
+            </div>
+        </section>
+
+
     </main>
+
+    <!-- -----footer ------ -->
+    <footer
+        class="flex flex-col justify-center md:flex-row md:justify-between items-center gap-8 p-25 mt-20  border-t-2 border-red-100">
+        <div class="title-footer text-center ">
+            <h1 class="text-2xl flex items-center  justify-center gap-1">
+                <span class="text-lg font-bold">English </span>
+                <img src="./assets/logo.png" alt="">
+                <span class="font-bangla text-lg font-semibold">জানালা</span>
+            </h1>
+            <h2 class="font-bangla text-lg font-semibold py-2">ইংরেজি শিখুন সহজে</h2>
+            <p class="text-sm font-normal">Providing ED-Tech Applications since 2025</p>
+        </div>
+        <div class="footer-icons space-y-2">
+            <h1 class="text-lg text-gray-400 text-center">FOLLOW US</h1>
+            <div class="icons w-full flex justify-center gap-5">
+                <a href="#"><img src="./assets/fb-thumb.png" alt=""></a>
+                <a href="#"><img src="./assets/github-thumb.png" alt=""></a>
+                <a href="#"><img src="./assets/instagram-thumb.png" alt=""></a>
+                <a href="#"><img src="./assets/instagram-thumb.png" alt=""></a>
+            </div>
+
+        </div>
+    </footer>
 
 
     <!-- Open the modal using ID.showModal() method -->
